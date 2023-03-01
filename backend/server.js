@@ -7,7 +7,7 @@ import productRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import uploadRouter from "./routes/uploadRoutes.js";
-
+const cors = require("cors");
 dotenv.config();
 
 mongoose
@@ -43,9 +43,17 @@ app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
 );
 
+app.use(cors());
+app.get("/",(req,res)=>{
+res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send("API is RUning");
+});
+
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
+
+
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
