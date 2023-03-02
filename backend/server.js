@@ -60,3 +60,9 @@ import cors from 'cors'
 app.use(cors({
   origin: 'https://amazon-clone-zjrx.onrender.com'
 }));
+
+app.get("/",(req,res)=>{
+  res.setGeader("Access-Control-Allow-Credentials","true");
+  res.send("APi is running...");
+});
+
