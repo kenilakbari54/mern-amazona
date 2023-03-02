@@ -29,7 +29,7 @@ export default function SignupScreen() {
       return;
     }
     try {
-      const { data } = await Axios.post('/api/users/signup', {
+      const { data } = await Axios.post('https://amazon-clone-zjrx.onrender.com/api/users/signup', {
         name,
         email,
         password,
@@ -89,7 +89,7 @@ export default function SignupScreen() {
         </div>
         <div className="mb-3">
           Already have an account?{' '}
-          <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
+          <Link to={`https://amazon-clone-zjrx.onrender.com/signin?redirect=${redirect}`}>Sign-In</Link>
         </div>
       </Form>
     </Container>
