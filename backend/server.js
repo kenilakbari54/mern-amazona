@@ -8,6 +8,7 @@ import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import uploadRouter from "./routes/uploadRoutes.js";
 
+
 dotenv.config();
 
 mongoose
@@ -52,3 +53,10 @@ const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
+
+
+
+import cors from 'cors'
+app.use(cors({
+  origin: 'https://frontend-amazon.onrender.com'
+}));
