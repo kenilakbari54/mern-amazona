@@ -58,5 +58,5 @@ app.listen(port, () => {
 
 import cors from 'cors'
 app.use(cors({
-  origin: 'https://frontend-amazon.onrender.com'
+  origin: 'https://amazon-clone-zjrx.onrender.com'
 }));
