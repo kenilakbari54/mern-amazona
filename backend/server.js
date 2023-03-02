@@ -7,7 +7,12 @@ import productRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import uploadRouter from "./routes/uploadRoutes.js";
-import cors from 'cors';
+import cors from 'cors'
+
+const app = express();
+
+
+
 
 dotenv.config();
 
@@ -20,10 +25,16 @@ mongoose
     console.log(err.message);
   });
 
-const app = express();
+
 
 
 app.use(express.json());
+app.use(cors())
+app.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.send("api is running");
+});
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/api/keys/paypal", (req, res) => {
@@ -54,9 +65,4 @@ app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
 
-app.use(cors());
 
-app.get("/",(req,res)=>{
-  res.setHeader("Access-Control-Allow-Origin","true");
-  res.send("APi is running...");
-});
