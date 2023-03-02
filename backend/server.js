@@ -57,10 +57,6 @@ app.listen(port, () => {
 app.use(cors());
 
 app.get("/",(req,res)=>{
-  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.setHeader("Access-Control-Allow-Origin","true");
   res.send("APi is running...");
 });
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE'); I
-header('Access-Control-Allow-Headers: Content-Type, X-Auth-T en, Origin, Authorization');
-
