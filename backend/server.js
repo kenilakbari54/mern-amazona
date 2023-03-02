@@ -7,7 +7,7 @@ import productRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import uploadRouter from "./routes/uploadRoutes.js";
-
+import cors from 'cors';
 
 dotenv.config();
 
@@ -54,15 +54,10 @@ app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
 
-
-
-import cors from 'cors'
-app.use(cors({
-  origin: 'https://amazon-clone-zjrx.onrender.com'
-}));
+app.use(cors());
 
 app.get("/",(req,res)=>{
-  res.setGeader("Access-Control-Allow-Credentials","true");
+  res.setHeader("Access-Control-Allow-Credentials","true");
   res.send("APi is running...");
 });
 
