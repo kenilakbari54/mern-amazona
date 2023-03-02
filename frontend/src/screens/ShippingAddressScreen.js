@@ -22,7 +22,7 @@ export default function ShippingAddressScreen() {
   );
   useEffect(() => {
     if (!userInfo) {
-      navigate('/signin?redirect=/shipping');
+      navigate('https://amazon-clone-zjrx.onrender.com/signin?redirect=/shipping');
     }
   }, [userInfo, navigate]);
   const [country, setCountry] = useState(shippingAddress.country || '');
