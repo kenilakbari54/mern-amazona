@@ -73,7 +73,7 @@ export default function UserEditScreen() {
     try {
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
-        `/api/users/${userId}`,
+        `https://amazon-clone-zjrx.onrender.com/api/users/${userId}`,
         { _id: userId, name, email, isAdmin },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -83,7 +83,7 @@ export default function UserEditScreen() {
         type: 'UPDATE_SUCCESS',
       });
       toast.success('User updated successfully');
-      navigate('/admin/users');
+      navigate('https://amazon-clone-zjrx.onrender.com/admin/users');
     } catch (error) {
       toast.error(getError(error));
       dispatch({ type: 'UPDATE_FAIL' });
