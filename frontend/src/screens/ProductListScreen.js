@@ -80,7 +80,7 @@ export default function ProductListScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`/api/products/admin?page=${page} `, {
+        const { data } = await axios.get(`https://amazon-clone-zjrx.onrender.com/api/products/admin?page=${page} `, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
 
@@ -108,7 +108,7 @@ export default function ProductListScreen() {
         );
         toast.success('product created successfully');
         dispatch({ type: 'CREATE_SUCCESS' });
-        navigate(`/admin/product/${data.product._id}`);
+        navigate(`https://amazon-clone-zjrx.onrender.com/admin/product/${data.product._id}`);
       } catch (err) {
         toast.error(getError(error));
         dispatch({
@@ -121,7 +121,7 @@ export default function ProductListScreen() {
   const deleteHandler = async (product) => {
     if (window.confirm('Are you sure to delete?')) {
       try {
-        await axios.delete(`/api/products/${product._id}`, {
+        await axios.delete(`https://amazon-clone-zjrx.onrender.com/api/products/${product._id}`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         toast.success('product deleted successfully');
@@ -204,7 +204,7 @@ export default function ProductListScreen() {
               <Link
                 className={x + 1 === Number(page) ? 'btn text-bold' : 'btn'}
                 key={x + 1}
-                to={`/admin/products?page=${x + 1}`}
+                to={`https://amazon-clone-zjrx.onrender.com/admin/products?page=${x + 1}`}
               >
                 {x + 1}
               </Link>
