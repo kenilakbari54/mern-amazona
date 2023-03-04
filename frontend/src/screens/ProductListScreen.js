@@ -100,7 +100,7 @@ export default function ProductListScreen() {
       try {
         dispatch({ type: 'CREATE_REQUEST' });
         const { data } = await axios.post(
-          '/api/products',
+          'https://amazon-clone-zjrx.onrender.com/api/products',
           {},
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -108,7 +108,7 @@ export default function ProductListScreen() {
         );
         toast.success('product created successfully');
         dispatch({ type: 'CREATE_SUCCESS' });
-        navigate(`https://amazon-clone-zjrx.onrender.com/admin/product/${data.product._id}`);
+        navigate(`/admin/product/${data.product._id}`);
       } catch (err) {
         toast.error(getError(error));
         dispatch({
@@ -182,7 +182,7 @@ export default function ProductListScreen() {
                     <Button
                       type="button"
                       variant="light"
-                      onClick={() => navigate(`https://amazon-clone-zjrx.onrender.com/admin/product/${product._id}`)}
+                      onClick={() => navigate(`/admin/product/${product._id}`)}
                     >
                       Edit
                     </Button>
@@ -204,7 +204,7 @@ export default function ProductListScreen() {
               <Link
                 className={x + 1 === Number(page) ? 'btn text-bold' : 'btn'}
                 key={x + 1}
-                to={`https://amazon-clone-zjrx.onrender.com/admin/products?page=${x + 1}`}
+                to={`/admin/products?page=${x + 1}`}
               >
                 {x + 1}
               </Link>
